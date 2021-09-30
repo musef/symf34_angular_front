@@ -1,0 +1,95 @@
+<div class="row">
+    <div id="headerClass" class="col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 col-xs-12 ">	
+        <nav class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12 nav-O2">
+            <div style="">
+                <h3 style="float:none">{{queryObjectSelected}}</h3>
+
+                <div class="col-md-12 col-lg-12 col-xs-12" style="margin-top: 15px;"> 
+                    <div class="col-md-12 col-lg-12 col-xs-12 list_templates">                    
+                        <div class="col-md-8 col-lg-6 col-xs-12" style="margin-bottom: 5px;"> 
+                            <label style="margin-right: 10px;">Mostrar todos</label> 
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-12" style="margin-bottom: 20px;"> 
+                            <button><a routerLink="/asignaturas" (click)="onClickAll()" 
+                                class="btn btn-info" >Procesar</a>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-12 col-xs-12 list_templates" >
+                        <div class="col-md-8 col-lg-6 col-xs-12" style="margin-bottom: 5px;"> 
+                            <label style="margin-right: 10px;">Mostrar por Id</label> 
+                            <input type="text" [(ngModel)]="idAsignatura" name="asig_byid" id="asig_byid" 
+                                title="Introduzca un número entero (vacío mostrará todos)" style="max-width: 30%;">
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-12" style="margin-bottom: 20px;"> 
+                            <button><a routerLink="/asignaturas/{{idAsignatura}}" (click)="onClickById()" 
+                                class="btn btn-info" >Procesar</a>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 col-lg-12 col-xs-12 list_templates" >
+                        <div class="col-md-8 col-lg-6 col-xs-12" style="margin-bottom: 5px;"> 
+                            <label style="margin-right: 10px;">Buscar por texto</label> 
+                            <input type="text" [(ngModel)]="nameSearched" name="asig_byname" id="asig_byname" 
+                                title="Introduzca un texto o conjunto de letras a buscar" style="max-width: 30%;">
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-12" style="margin-bottom: 20px;"> 
+                            <button><a routerLink="/asignaturas/nombre/{{nameSearched}}"  (click)="onClickByNombre()" 
+                                class="btn btn-info" >Procesar</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-12 col-xs-12 list_templates" >
+                        <div class="col-md-8 col-lg-6 col-xs-12" style="margin-bottom: 5px;"> 
+                            <label style="margin-right: 10px;">Buscar profesor / asignatura</label> 
+                            <input type="text" [(ngModel)]="idAsignaturaProf" name="asig_prof_byid" id="asig_prof_byid" 
+                                title="Introduzca un número entero (vacío mostrará todos)" style="max-width: 30%;">
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-xs-12" style="margin-bottom: 20px;"> 
+                            <button><a routerLink="/asignaturas/{{idAsignaturaProf}}/profesores" (click)="onClickAsignProf()"
+                                class="btn btn-info" >Procesar</a>
+                            </button>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="col-md-12 col-lg-12 col-xs-12"  >                    
+                    <div *ngIf="isAsignaturaArray===true">
+                        <div *ngIf="status == 200" class="alert alert-success">
+                            <h4>{{resultMessage}}</h4>
+                        </div>
+                        <div *ngIf="status != 200 && status != 0" class="alert alert-warning">
+                            <h4>{{resultMessage}}</h4>
+                        </div>
+                        <div *ngIf="dataAsignatura != ''" >                        
+                            <div *ngFor="let asignatura of dataAsignatura" class="list_templates">
+                                <div  style="margin-bottom: 5px;"> 
+                                    <label style="margin-right: 10px;">ID: {{asignatura.id}}</label> 
+                                    <label style="margin-right: 10px;">NOMBRE: {{asignatura.nombre}}</label>
+                                    <label *ngIf="asignatura.idEstudio != null" style="margin-right: 10px;">IDESTUDIO: {{asignatura.idEstudio}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div *ngIf="isAsignaturaArray===false" style="">                        
+                        <div *ngIf="status == 200" class="alert alert-success">
+                            <h4>{{resultMessage}}</h4>
+                        </div>
+                        <div *ngIf="status != 200 && status != 0" class="alert alert-warning">
+                            <h4>{{resultMessage}}</h4>
+                        </div>                            
+                        <div *ngIf="dataAsignatura != ''"  style="margin-bottom: 5px;"> 
+                            <label style="margin-right: 10px;">ID: {{dataAsignatura.id}}</label> 
+                            <label style="margin-right: 10px;">NOMBRE: {{dataAsignatura.nombre}}</label>
+                            <label style="margin-right: 10px;">IDESTUDIO: {{dataAsignatura.idEstudio}}</label>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </nav>                
+    </div>
+</div>

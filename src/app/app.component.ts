@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: "symf34-test",
+  providers: [],
+  templateUrl: "../angularapp/views/main_template.html",
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'symf34-prod-v100';
-}
+export class AppComponent {}

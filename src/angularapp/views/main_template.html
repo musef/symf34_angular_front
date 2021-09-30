@@ -1,0 +1,26 @@
+    <div class="col-md-12 col-lg-12 col-xs-12">  
+        
+        <header-comp></header-comp>
+
+		<div class="row lnc">   
+                 
+            <div class="col-md-7 col-md-offset-2 col-lg-7 col-lg-offset-2 col-xs-12">
+                <hr>
+                <h3 style="float:none">USAR EL SERVICIO DE CONSULTA EN EL FRONTAL</h3> 
+                <p>Pulse en los links correspondientes a la consulta que desea hacer</p>
+                <p>
+                    <button class="button_main"><a routerLink="/" >Volver</a></button>
+                    <button class="button_main"><a routerLink="/asignaturas/show" >Consultar Asignaturas</a></button>
+                    <button class="button_main"><a routerLink="/estudios/show" >Consultar Estudios</a></button>
+                    <button class="button_main"><a routerLink="/profesores/show" >Consultar Profesores</a></button>
+
+                </p>
+            </div> 
+
+            <router-outlet></router-outlet>
+
+		</div>
+
+        <footer-comp></footer-comp>                
+
+    </div>
