@@ -4,6 +4,8 @@ Este proyecto consiste en un front para la API symf34_test.
 
 El front está desarrollado en angular 12, y básicamente sirve para acceder a los endpoints de la API mediante el navegador, obteniendo los resultados en forma de lista simple.
 
+Se puede testear el funcionamiento de este front en: http://symf34.fmsdevelopment.com/index.html
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
 
 ## Development server
